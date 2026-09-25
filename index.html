@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SEVEXA - Digital Services & Tools</title>
+
+  <meta
+    name="description"
+    content="SEVEXA provides digital tools, printing services, document tools and useful government portal links."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #1f2937;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    .header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #2563eb;
+    }
+
+    .logo span {
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      padding: 65px 20px;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 54px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+      opacity: 0.95;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: auto;
+      display: flex;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 6px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 8px;
+    }
+
+    .search-box button {
+      border: none;
+      background: #111827;
+      color: #ffffff;
+      padding: 0 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    /* MAIN */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .section {
+      margin-bottom: 55px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 24px 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .card-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+      color: #111827;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    /* GOVERNMENT */
+    .government {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 35px;
+      border: 1px solid #e5e7eb;
+    }
+
+    .gov-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .gov-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 18px 12px;
+      text-align: center;
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .gov-card:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+    }
+
+    .gov-card .icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .gov-card strong {
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      padding: 40px 20px;
+      margin-top: 20px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
+    }
+
+    footer h3 {
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      font-size: 14px;
+      color: #9ca3af;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #374151;
+      text-align: center;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gov-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 45px 15px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .search-box {
+        flex-direction: column;
+        background: transparent;
+        box-shadow: none;
+        gap: 8px;
+      }
+
+      .search-box input,
+      .search-box button {
+        width: 100%;
+        min-height: 48px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .card {
+        padding: 18px 12px;
+      }
+
+      .gov-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .government {
+        padding: 20px 14px;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav">
+      <a href="#" class="logo">
+        SEVEXA<span>.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#tools">Tools</a>
+        <a href="#government">Government</a>
+        <a href="#design">Design</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <h1>Everything You Need, In One Place</h1>
+
+      <p>
+        Digital tools, printing, document services and useful government
+        portal links — designed for everyday users and cyber cafés.
+      </p>
+
+      <div class="search-box">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search for a service..."
+          aria-label="Search services"
+        >
+
+        <button onclick="searchServices()">
+          Search
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- MAIN -->
+  <main class="container">
+
+    <!-- TOOLS -->
+    <section class="section" id="tools">
+
+      <div class="section-title">
+        <h2>Digital & Print Tools</h2>
+        <p>Useful tools for photos, documents and printing</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">📷</div>
+          <h3>Passport Photo</h3>
+          <p>Create and prepare passport-size photographs.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✂️</div>
+          <h3>Photo Resize</h3>
+          <p>Resize photographs to your required dimensions.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🪪</div>
+          <h3>ID Card Print</h3>
+          <p>Prepare ID cards for printing.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📄</div>
+          <h3>JPG to PDF</h3>
+          <p>Convert images into PDF documents.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📑</div>
+          <h3>PDF Tools</h3>
+          <p>Work with common PDF operations.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🖨️</div>
+          <h3>A4 Print Layout</h3>
+          <p>Arrange photos and documents for A4 printing.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✍️</div>
+          <h3>Signature Resize</h3>
+          <p>Resize signatures for applications and forms.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">💳</div>
+          <h3>Visiting Card</h3>
+          <p>Create simple printable visiting cards.</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- GOVERNMENT SERVICES -->
+    <section class="section" id="government">
+
+      <div class="section-title">
+        <h2>Government Services</h2>
+        <p>Quick access to important official government portals</p>
+      </div>
+
+      <div class="government">
+
+        <div class="gov-grid">
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🪪</div>
+            <strong>Aadhaar</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">💳</div>
+            <strong>PAN Card</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🗳️</div>
+            <strong>Voter ID</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🏥</div>
+            <strong>Ayushman Bharat</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🚗</div>
+            <strong>Driving Licence</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🚘</div>
+            <strong>Vehicle / RC</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">📜</div>
+            <strong>Birth Certificate</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">👷</div>
+            <strong>E-Shram</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🎓</div>
+            <strong>APAAR</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🏥</div>
+            <strong>ABHA</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🌾</div>
+            <strong>PM-Kisan</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">💼</div>
+            <strong>EPFO</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🛂</div>
+            <strong>Passport</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🧾</div>
+            <strong>GST</strong>
+          </a>
+
+          <a class="gov-card" href="#" target="_blank">
+            <div class="icon">🚆</div>
+            <strong>Railway</strong>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- DESIGN -->
+    <section class="section" id="design">
+
+      <div class="section-title">
+        <h2>Creative & Document Design</h2>
+        <p>Create useful documents and printable designs</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">📄</div>
+          <h3>Resume / CV</h3>
+          <p>Create a professional resume.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📝</div>
+          <h3>Application</h3>
+          <p>Prepare common applications and letters.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📋</div>
+          <h3>Biodata</h3>
+          <p>Create a printable biodata.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Poster</h3>
+          <p>Create simple printable posters.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer id="contact">
+
+    <div class="footer-content">
+
+      <div>
+        <h3>SEVEXA</h3>
+        <p>
+          Digital tools, document services, printing resources
+          and useful government portal links.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="#tools">Digital Tools</a></p>
+        <p><a href="#government">Government Services</a></p>
+        <p><a href="#design">Design Tools</a></p>
+      </div>
+
+      <div>
+        <h3>Information</h3>
+        <p>About SEVEXA</p>
+        <p>Privacy Policy</p>
+        <p>Terms & Conditions</p>
+        <p>Disclaimer</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 SEVEXA. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <script>
+    function searchServices() {
+      const input = document.getElementById("searchInput");
+      const query = input.value.trim().toLowerCase();
+
+      if (!query) {
+        alert("Please enter a service name.");
+        return;
+      }
+
+      const searchableItems = document.querySelectorAll(
+        ".card, .gov-card"
+      );
+
+      let found = false;
+
+      searchableItems.forEach(item => {
+        const text = item.innerText.toLowerCase();
+
+        if (text.includes(query)) {
+          item.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          item.style.outline = "3px solid #2563eb";
+
+          setTimeout(() => {
+            item.style.outline = "";
+          }, 2500);
+
+          found = true;
+        }
+      });
+
+      if (!found) {
+        alert("No matching service found.");
+      }
+    }
+  </script>
+
+</body>
+</html>
